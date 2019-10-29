@@ -83,4 +83,68 @@ public class Database {
         return (tbl.toString());
     }
     
+    public String addRegistrationInfo(String firstName, String lastName, String displayName, String sessionID) throws SQLException{
+        
+        int id;
+        int result = 0;
+        String query;
+        String disname;
+        String registrationCode;
+        ResultSet keys;
+        JSONObject json = new JSONObject();
+        String results;
+        
+        
+        query = "INSERT INTO registrations (firstname, lastname, displayname, sessionid)"  + "VALUES (?, ?, ?, ?); ";
+        Connection defcon = getConnection();
+        
+        try {
+            
+            PreparedStatement statement = defcon.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+            
+            statement.setString(0, firstName);
+            statement.setString(1, lastName);
+            statement.setString(2, displayName);
+            statement.setString(3, sessionID);
+            
+            result = statement.executeUpdate();
+            
+            if (result ==1){
+                
+                keys = statement.getGeneratedKeys();
+                if (keys.next()){
+                    id = keys.getInt(1);
+                }    
+            }
+            
+            String code = String.format("%06d", id);
+            registrationCode = "R";
+            registrationCode += code;
+            
+            json.put("registration_code", registrationCode);
+            json.put("displayname", displayName);
+            
+            results = JSONValue.toJSONString(json);
+            
+        }
+        catch(Exception bleepblop){
+            System.out.println(bleepblop.toString());
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+
+        
+   
+    
 }
