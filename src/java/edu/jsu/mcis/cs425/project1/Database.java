@@ -14,7 +14,7 @@ import org.json.simple.JSONArray;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
-
+//attempting to fix parsing error
 public class Database {
     
     String sessID;
@@ -92,7 +92,7 @@ public class Database {
         String registrationCode;
         ResultSet keys;
         JSONObject json = new JSONObject();
-        String results;
+        String results = "";
         
         
         query = "INSERT INTO registrations (firstname, lastname, displayname, sessionid)"  + "VALUES (?, ?, ?, ?); ";
@@ -131,20 +131,11 @@ public class Database {
             System.out.println(bleepblop.toString());
         }
         
+      
+           
+            return (results.trim());
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        }
     }
+  
 
-        
-   
-    
-}
