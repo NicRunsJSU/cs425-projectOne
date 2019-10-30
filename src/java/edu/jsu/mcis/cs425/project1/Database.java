@@ -85,7 +85,8 @@ public class Database {
     
     public String addRegistrationInfo(String firstName, String lastName, String displayName, String sessionID) throws SQLException{
         
-        int id;
+        
+        int id = 0;
         int result = 0;
         String query;
         String disname;
