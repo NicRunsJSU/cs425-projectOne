@@ -31,7 +31,7 @@ public class Database {
             conn = ds.getConnection();
             
         }        
-        catch (Exception stinkystinky) { stinkystinky.printStackTrace(); }
+        catch (Exception bad) { bad.printStackTrace(); }
         
         return conn;
 
