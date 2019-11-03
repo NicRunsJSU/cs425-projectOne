@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
+
 @WebServlet(name = "registration", urlPatterns =  {"/registration"})
 public class Registration extends HttpServlet {
 
