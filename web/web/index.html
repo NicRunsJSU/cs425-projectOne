@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Session Registration! </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="scripts/ProjectOne.js"></script>
+    </head>
+    <body>
+        <a href="registration.html"> Registration Link </a>
+        
+        <form name="search" id="search" action="#">
+            
+            <fieldset>
+                
+                <label for="search"> Search Session: </label>
+                <select name="session number" id="session">
+                    
+                    <option value="1">Session 1</option>
+                    <option value="2">Session 2</option>
+                    <option value="3">Session 3</option>
+                    <option value="4">Session 4</option>
+                     
+                </select>
+                <input type="button" value="Submit" onclick="ProjectOne.submitSearch();">
+                
+            </fieldset>
+        </form>
+        
+        <script> type="text.javascript">
+            $(document).ready(ProjectOne.init);
+        </script>
+        
+        <div id="results">
+            <p id="version">
+                </p>
+        </div>
+        
+    </body>
+</html>

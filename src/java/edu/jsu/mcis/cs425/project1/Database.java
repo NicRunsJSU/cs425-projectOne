@@ -42,6 +42,7 @@ public class Database {
         
         StringBuilder tbl = new StringBuilder();
         String query;
+        ResultSet result = null;
         
         this.sessID = sessionID;
         Connection defcon = getConnection();
@@ -50,10 +51,11 @@ public class Database {
         
         try { 
             PreparedStatement statement = defcon.prepareStatement(query);
-            statement.setString(0, sessID);
+            statement.setString(1, sessID);
+            Boolean thereAreResults = statement.execute();
             
-            if (statement.execute()) {
-                ResultSet result = statement.getResultSet();
+            if (thereAreResults) {
+                result = statement.getResultSet();
                 
                 //  MAKE TABLE
                 tbl.append("<table>");
@@ -79,7 +81,10 @@ public class Database {
             
             
         }
-        catch(Exception blahblahblah){System.err.println(blahblahblah);}
+        catch(Exception e){System.err.println(e);}
+        
+ 
+        
         return (tbl.toString());
     }
     
@@ -103,10 +108,10 @@ public class Database {
             
             PreparedStatement statement = defcon.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
             
-            statement.setString(0, firstName);
-            statement.setString(1, lastName);
-            statement.setString(2, displayName);
-            statement.setString(3, sessionID);
+            statement.setString(1, firstName);
+            statement.setString(2, lastName);
+            statement.setString(3, displayName);
+            statement.setString(4, sessionID);
             
             result = statement.executeUpdate();
             

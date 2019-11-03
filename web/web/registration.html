@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Register</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="scripts/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="scripts/ProjectOne.js"></script>
+        
+    </head>
+    <body>
+        
+        <a href="index.html">Session Registration</a>
+        
+        <form name="registration" id="registration" action ="#">
+            
+            <fieldset>
+                
+                <p>
+                    
+                    <label for="input">First name: </label>
+                    <input type="text" name="firstname" class="namefields" id="firstName">
+                    
+                </p>
+                <p>
+                    
+                    <label for="input">Last name: </label>
+                    <input type="text" name="lastname" class="namefields" id="lastName">
+                    
+                </p>
+                <p>
+                    
+                    <label for="input">Display name: </label>
+                    <input type="text" name="displayname" id="displayName">
+                    
+                </p>
+                <p>
+                    <label for="input">Session Selection:</label>
+
+                    <select name="session" id="session">
+
+                        <option value="1"> Session One</option>
+                        <option value="2"> Session Two</option>
+                        <option value="3"> Session Three</option>
+                        <option value="4"> Session Four</option>
+
+                    </select>
+                
+                </p>
+                
+                <input type="button" value="Submit" onclick="ProjectOne.SubmitReg();">
+                
+            </fieldset>
+            
+        </form>
+        
+        
+        
+        
+        
+        <script type="text/javascript">
+            $(document).ready(Project.init);
+            $('.namefields').change(function() {
+                
+                var fname = document.getElementById(firstName);
+                var lname = document.getElementById(lastName);
+                var dname = fname +  " " + lname;
+                $('displayname').html(dname);
+                
+            });
+        
+            </script>
+            
+            <div id="result">
+                
+                <p id="version"></p>
+                
+            </div>
+        
+        
+        
+    </body>
+</html>
