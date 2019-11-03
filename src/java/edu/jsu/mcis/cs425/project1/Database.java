@@ -16,7 +16,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 //attempting to fix parsing error
 public class Database {
-    
+    //
     String sessID;
     
     private Connection getConnection() {
